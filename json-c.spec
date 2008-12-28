@@ -4,7 +4,7 @@
 
 Name:		json-c
 Version:	0.7
-Release:	%{mkrel 1}
+Release:	%{mkrel 2}
 Summary:	JSON implementation in C
 Group:		System/Libraries
 URL:		http://oss.metaparadigm.com/%{name}
@@ -31,6 +31,7 @@ representation of JSON objects.
 %package -n %{develname}
 Summary:	Development headers and libraries for %{name}
 Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	libjson-devel = %{version}-%{release}
 
