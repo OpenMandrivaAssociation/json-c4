@@ -3,14 +3,14 @@
 %define develname	%mklibname json -d
 
 Name:		json-c
-Version:	0.7
-Release:	%{mkrel 2}
+Version:	0.8
+Release:	%mkrel 1
 Summary:	JSON implementation in C
 Group:		System/Libraries
 URL:		http://oss.metaparadigm.com/%{name}
 Source0:	http://oss.metaparadigm.com/%{name}/json-c-%{version}.tar.gz
 License:	MIT
-BuildRoot:	%{_tmppath}/%{name}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 JSON-C implements a reference counting object model that allows you to
