@@ -4,7 +4,7 @@
 
 Name:		json-c
 Version:	0.8
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	JSON implementation in C
 Group:		System/Libraries
 URL:		http://oss.metaparadigm.com/%{name}
