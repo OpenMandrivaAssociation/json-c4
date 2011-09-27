@@ -3,8 +3,8 @@
 %define develname	%mklibname json -d
 
 Name:		json-c
-Version:	0.8
-Release:	%mkrel 4
+Version:	0.9
+Release:	%mkrel 1
 Summary:	JSON implementation in C
 Group:		System/Libraries
 URL:		http://oss.metaparadigm.com/%{name}
