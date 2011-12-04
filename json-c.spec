@@ -4,13 +4,12 @@
 
 Name:		json-c
 Version:	0.9
-Release:	%mkrel 1
+Release:	2
 Summary:	JSON implementation in C
 Group:		System/Libraries
 URL:		http://oss.metaparadigm.com/%{name}
 Source0:	http://oss.metaparadigm.com/%{name}/json-c-%{version}.tar.gz
 License:	MIT
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 JSON-C implements a reference counting object model that allows you to
@@ -31,7 +30,7 @@ representation of JSON objects.
 %package -n %{develname}
 Summary:	Development headers and libraries for %{name}
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} >= %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	libjson-devel = %{version}-%{release}
 
@@ -50,27 +49,16 @@ representation of JSON objects.
 
 %install
 rm -rf %{buildroot}
+
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanup
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_libdir}/*.so
-%{_libdir}/*.*a
 %{_includedir}/json
 %{_libdir}/pkgconfig/*.pc
-
