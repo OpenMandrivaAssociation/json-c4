@@ -62,3 +62,36 @@ rm -f %{buildroot}%{_libdir}/*.*a
 %{_libdir}/*.so
 %{_includedir}/json
 %{_libdir}/pkgconfig/*.pc
+
+
+%changelog
+* Sun Dec 04 2011 Oden Eriksson <oeriksson@mandriva.com> 0.9-2
++ Revision: 737610
+- drop the static lib and the libtool *.la file
+- various fixes
+
+* Tue Sep 27 2011 Tomasz Pawel Gajc <tpg@mandriva.org> 0.9-1
++ Revision: 701579
+- update to new version 0.9
+
+* Mon Dec 06 2010 Oden Eriksson <oeriksson@mandriva.com> 0.8-4mdv2011.0
++ Revision: 612514
+- the mass rebuild of 2010.1 packages
+
+* Sun May 09 2010 Tomasz Pawel Gajc <tpg@mandriva.org> 0.8-3mdv2010.1
++ Revision: 544275
+- rebuild
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Sun Feb 22 2009 Oden Eriksson <oeriksson@mandriva.com> 0.8-1mdv2009.1
++ Revision: 343849
+- 0.8
+
+* Sun Dec 28 2008 Adam Williamson <awilliamson@mandriva.org> 0.7-2mdv2009.1
++ Revision: 320229
+- devel requires lib
+- import json-c
+
+
