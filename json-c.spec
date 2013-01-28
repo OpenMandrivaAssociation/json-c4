@@ -3,12 +3,12 @@
 %define develname	%mklibname json -d
 
 Name:		json-c
-Version:	0.9
-Release:	2
+Version:	0.10
+Release:	1
 Summary:	JSON implementation in C
 Group:		System/Libraries
-URL:		http://oss.metaparadigm.com/%{name}
-Source0:	http://oss.metaparadigm.com/%{name}/json-c-%{version}.tar.gz
+URL:		https://github.com/json-c/json-c/wiki
+Source0:	https://github.com/downloads/json-c/json-c/json-c-%{version}.tar.gz
 License:	MIT
 
 %description
@@ -48,8 +48,6 @@ representation of JSON objects.
 %make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
 # cleanup

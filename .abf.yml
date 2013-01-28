@@ -1,2 +1,4 @@
+removed_sources:
+  json-c-0.9.tar.gz: daaf5eb960fa98e137abc5012f569b83c79be90f
 sources:
-  "json-c-0.9.tar.gz": daaf5eb960fa98e137abc5012f569b83c79be90f
+  json-c-0.10.tar.gz: f90f643c8455da21d57b3e8866868a944a93c596
