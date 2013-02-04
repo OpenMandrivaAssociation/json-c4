@@ -4,7 +4,7 @@
 
 Name:		json-c
 Version:	0.10
-Release:	1
+Release:	2
 Summary:	JSON implementation in C
 Group:		System/Libraries
 URL:		https://github.com/json-c/json-c/wiki
