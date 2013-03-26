@@ -1,6 +1,7 @@
 %define major		0
 %define libname		%mklibname json %{major}
 %define develname	%mklibname json -d
+%bcond_with	crosscompile
 
 Name:		json-c
 Version:	0.10
@@ -50,6 +51,12 @@ sed -e 's/json_object.c/json_object.c json_object_iterator.c/' \
     -i Makefile.in
 
 %build
+%if %{with crosscompile}
+export ac_cv_func_malloc_0_nonnull=yes
+%endif
+#fix build with new automake
+sed -i -e 's,AM_CONFIG_HEADER,AC_CONFIG_HEADERS,g' configure.*
+autoreconf -fi
 %configure2_5x --disable-static
 %make
 
