@@ -1,11 +1,11 @@
-%define major	0
-%define libname	%mklibname json %{major}
-%define devname	%mklibname json -d
-%bcond_with	crosscompile
+%define major 0
+%define libname %mklibname json %{major}
+%define devname %mklibname json -d
+%bcond_with crosscompile
 
 Name:		json-c
-Version:	0.10
-Release:	3
+Version:	0.11
+Release:	1
 Summary:	JSON implementation in C
 Group:		System/Libraries
 License:	MIT
@@ -44,22 +44,14 @@ representation of JSON objects.
 %prep
 %setup -q
 
-# Hack from Fedora to get json_object_iterator.c compiled
-sed -e 's/json_object.c/json_object.c json_object_iterator.c/' \
-	-e 's/json_object.h/json_object.h json_object_iterator.h/' \
-	-e 's/json_object.lo/json_object.lo json_object_iterator.lo/' \
-	-i Makefile.in
-
 %if %{with crosscompile}
 export ac_cv_func_malloc_0_nonnull=yes
 %endif
-#fix build with new automake
-sed -i -e 's,AM_CONFIG_HEADER,AC_CONFIG_HEADERS,g' configure.*
-autoreconf -fi
 
 %build
 %configure2_5x \
 	--disable-static
+
 %make
 
 %install
