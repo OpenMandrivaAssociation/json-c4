@@ -11,6 +11,9 @@ Group:		System/Libraries
 License:	MIT
 Url:		https://github.com/json-c/json-c/wiki
 Source0:	https://github.com/downloads/json-c/json-c/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 
 %description
 JSON-C implements a reference counting object model that allows you to
