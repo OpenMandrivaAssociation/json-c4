@@ -10,9 +10,7 @@ Summary:	JSON implementation in C
 Group:		System/Libraries
 License:	MIT
 Url:		https://github.com/json-c/json-c/wiki
-Source0:	https://github.com/downloads/json-c/json-c/%{name}-%{version}.tar.gz
-BuildRequires:	autoconf
-BuildRequires:	automake
+Source0:	https://s3.amazonaws.com/json-c_releases/releases/%{name}-%{version}.tar.gz
 BuildRequires:	libtool
 
 %description
@@ -24,7 +22,6 @@ representation of JSON objects.
 %package -n %{libname}
 Summary:	JSON implementation in C
 Group:		System/Libraries
-Obsoletes:	%{mklibname json 0} < 0.11
 
 %description -n %{libname}
 JSON-C implements a reference counting object model that allows you to
@@ -63,7 +60,7 @@ export ac_cv_func_malloc_0_nonnull=yes
 %makeinstall_std
 
 %files -n %{libname}
-%{_libdir}/lib*%{name}.so.%{major}*
+%{_libdir}/libjson-c.so.%{major}*
 
 %files -n %{devname}
 %{_libdir}/*.so
