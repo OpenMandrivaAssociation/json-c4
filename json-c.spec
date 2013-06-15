@@ -1,6 +1,6 @@
-%define major 0
-%define libname %mklibname json %{major}
-%define devname %mklibname json -d
+%define major 2
+%define libname %mklibname %{name} %{major}
+%define devname %mklibname %{name} -d
 %bcond_with crosscompile
 
 Name:		json-c
@@ -24,6 +24,7 @@ representation of JSON objects.
 %package -n %{libname}
 Summary:	JSON implementation in C
 Group:		System/Libraries
+Obsoletes:	%{mklibname json 0} < 0.11
 
 %description -n %{libname}
 JSON-C implements a reference counting object model that allows you to
@@ -52,9 +53,9 @@ export ac_cv_func_malloc_0_nonnull=yes
 %endif
 
 %build
-autoreconf -fi
 %configure2_5x \
-	--disable-static
+	--disable-static \
+	--disable-oldname-compat
 
 %make
 
@@ -62,10 +63,9 @@ autoreconf -fi
 %makeinstall_std
 
 %files -n %{libname}
-%{_libdir}/libjson.so.%{major}*
+%{_libdir}/lib*%{name}.so.%{major}*
 
 %files -n %{devname}
 %{_libdir}/*.so
-%{_includedir}/json
+%{_includedir}/%{name}
 %{_libdir}/pkgconfig/*.pc
-
