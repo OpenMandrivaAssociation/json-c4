@@ -61,9 +61,9 @@ export ac_cv_func_malloc_0_nonnull=yes
 
 %build
 %configure2_5x \
-	--disable-static \
+	--disable-static
 
-%make
+make
 
 %install
 %makeinstall_std
