@@ -8,7 +8,7 @@
 Summary:	JSON implementation in C
 Name:		json-c
 Version:	0.11
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	MIT
 Url:		https://github.com/json-c/json-c/wiki
@@ -67,6 +67,11 @@ make
 
 %install
 %makeinstall_std
+
+%pre
+# directory changed from file to symlink
+[ $1 -gt 1 -a -d %{_includedir}/json ] && \
+rm -rf %{_includedir}/json || :
 
 %files -n %{libname}
 %{_libdir}/libjson-c.so.%{major}*
