@@ -60,6 +60,7 @@ export ac_cv_func_malloc_0_nonnull=yes
 %endif
 
 %build
+autoreconf -fiv
 %configure2_5x \
 	--disable-static
 
