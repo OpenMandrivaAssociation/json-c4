@@ -53,7 +53,7 @@ export ac_cv_func_malloc_0_nonnull=yes
 %build
 sed -i -e "s:-Werror::" Makefile.am.inc
 autoreconf -fiv
-%configure2_5x \
+%configure \
 	--disable-static
 
 %make
