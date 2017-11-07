@@ -6,8 +6,8 @@
 
 Summary:	JSON implementation in C
 Name:		json-c
-Version:	0.12
-Release:	8
+Version:	0.12.1
+Release:	1
 Group:		System/Libraries
 License:	MIT
 Url:		https://github.com/json-c/json-c/wiki
@@ -28,7 +28,7 @@ Group:		System/Libraries
 JSON-C implements a reference counting object model that allows you to
 easily construct JSON objects in C, output them as JSON formatted
 strings and parse JSON formatted strings back into the C
-representation of JSON objects. 
+representation of JSON objects.
 
 %package -n %{devname}
 Summary:	Development headers and libraries for %{name}
