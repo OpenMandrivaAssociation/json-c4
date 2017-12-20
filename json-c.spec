@@ -1,12 +1,12 @@
 %define oldmaj 0
-%define major 2
+%define major 3
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 %bcond_with crosscompile
 
 Summary:	JSON implementation in C
 Name:		json-c
-Version:	0.12.1
+Version:	0.13
 Release:	1
 Group:		System/Libraries
 License:	MIT
@@ -51,7 +51,7 @@ export ac_cv_func_malloc_0_nonnull=yes
 %endif
 
 %build
-sed -i -e "s:-Werror::" Makefile.am.inc
+sed -i -e "s:-Werror::" configure.ac
 autoreconf -fiv
 %configure \
 	--disable-static
