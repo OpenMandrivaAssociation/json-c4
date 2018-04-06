@@ -1,5 +1,5 @@
 %define oldmaj 0
-%define major 3
+%define major 4
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 %bcond_with crosscompile
