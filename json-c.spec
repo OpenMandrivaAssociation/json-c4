@@ -7,11 +7,18 @@
 Summary:	JSON implementation in C
 Name:		json-c
 Version:	0.13.1
-Release:	3
+Release:	4
 Group:		System/Libraries
 License:	MIT
 Url:		https://github.com/json-c/json-c/wiki
 Source0:	https://s3.amazonaws.com/json-c_releases/releases/%{name}-%{version}.tar.gz
+# Cherry-picked from upstream.
+# https://github.com/json-c/json-c/commit/da4b34355da023c439e96bc6ca31886cd69d6bdb
+Patch0:         %{name}-0.13.1-parse_test_UTF8_BOM.patch
+# https://github.com/json-c/json-c/commit/f8c632f579c71012f9aca81543b880a579f634fc
+Patch1:         %{name}-0.13.1-fix_incorrect_casts_in_calls_to_ctype_functions.patch
+# https://github.com/json-c/json-c/commit/8bd62177e796386fb6382db101c90b57b6138afe
+Patch2:         %{name}-0.13.1-fix_typos.patch
 BuildRequires:	libtool
 
 %description
@@ -44,7 +51,7 @@ strings and parse JSON formatted strings back into the C
 representation of JSON objects.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %if %{with crosscompile}
 export ac_cv_func_malloc_0_nonnull=yes
@@ -54,12 +61,15 @@ export ac_cv_func_malloc_0_nonnull=yes
 sed -i -e "s:-Werror::" configure.ac
 autoreconf -fiv
 %configure \
-	--disable-static
+	--disable-static \
+	--enable-rdrand \
+	--enable-shared \
+	--enable-threading
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libjson-c.so.%{major}*
