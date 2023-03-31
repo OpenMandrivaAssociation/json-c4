@@ -6,7 +6,7 @@
 Summary:	JSON implementation in C
 Name:		json-c4
 Version:	0.13.1
-Release:	5
+Release:	6
 Group:		System/Libraries
 License:	MIT
 Url:		https://github.com/json-c/json-c/wiki
